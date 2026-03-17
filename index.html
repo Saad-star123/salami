@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>ইশতিয়াক আহমদের ঈদ সালামি কালেক্টর</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #0b4d2e 0%, #1a7f4b 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Decorative Elements */
+        .moon {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 190, 0.2);
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(255, 255, 200, 0.3);
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 200, 0.3);
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: rgba(255, 255, 200, 0.5);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            width: 20px;
+            height: 20px;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        .star-1 { top: 15%; left: 10%; width: 15px; height: 15px; animation-delay: 0.2s; }
+        .star-2 { top: 25%; left: 85%; width: 25px; height: 25px; animation-delay: 0.5s; }
+        .star-3 { top: 70%; left: 5%; width: 18px; height: 18px; animation-delay: 0.8s; }
+        .star-4 { top: 85%; left: 90%; width: 22px; height: 22px; animation-delay: 1.1s; }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 215, 0, 0.3) inset, 0 0 20px rgba(255, 215, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* Eid Mubarak Header */
+        .eid-header {
+            background: linear-gradient(135deg, #c49a2b, #f3d27e);
+            padding: 24px 20px 18px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eid-header::before {
+            content: "✦";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            font-size: 120px;
+            color: rgba(255, 255, 255, 0.1);
+            transform: rotate(15deg);
+        }
+
+        .eid-header::after {
+            content: "🌙 ✦";
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            font-size: 80px;
+            color: rgba(255, 255, 255, 0.1);
+            transform: rotate(-10deg);
+        }
+
+        .eid-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #0a4d2c;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+            line-height: 1.2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .eid-subtitle {
+            font-size: 18px;
+            color: #1e3a2a;
+            font-weight: 500;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            padding: 25px 25px 15px 25px;
+            gap: 18px;
+        }
+
+        .profile-img-container {
+            position: relative;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 30px 10px 30px 10px;
+            object-fit: cover;
+            border: 4px solid #c49a2b;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            background: #f8f8f8;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a472a;
+            line-height: 1.2;
+            margin-bottom: 5px;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .profile-name span {
+            font-size: 14px;
+            color: #c49a2b;
+            display: block;
+            font-weight: 400;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            color: #2d5a3b;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .profile-bio i {
+            font-style: normal;
+            font-size: 16px;
+        }
+
+        /* bKash Number Card */
+        .bkash-card {
+            background: linear-gradient(145deg, #e21836, #b0102a);
+            margin: 5px 25px 20px 25px;
+            padding: 18px 20px;
+            border-radius: 24px;
+            box-shadow: 0 10px 0 #6a0e1e, 0 15px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 2px solid #f9b81b;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .bkash-card:active {
+            transform: translateY(5px);
+            box-shadow: 0 5px 0 #6a0e1e, 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .bkash-logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            box-shadow: 0 5px 0 #990000;
+        }
+
+        .bkash-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .bkash-details {
+            flex: 1;
+        }
+
+        .bkash-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .bkash-number {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            word-break: break-word;
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+            margin: 2px 0;
+        }
+
+        .bkash-note {
+            color: #f9e174;
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid white;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: 0.2s;
+        }
+
+        .copy-btn:active {
+            background: white;
+            color: #e21836;
+        }
+
+        /* Message Section */
+        .message-container {
+            background: rgba(255, 245, 215, 0.7);
+            backdrop-filter: blur(10px);
+            margin: 10px 25px 20px 25px;
+            padding: 20px;
+            border-radius: 30px;
+            border: 2px dashed #c49a2b;
+            position: relative;
+            box-shadow: 0 8px 0 #aa8833;
+        }
+
+        .message-title {
+            font-size: 18px;
+            color: #1a472a;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .message-title i {
+            font-size: 22px;
+        }
+
+        .message-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2d1f00;
+            line-height: 1.5;
+            text-align: center;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .message-text span {
+            font-size: 24px;
+            color: #c49a2b;
+            margin: 0 3px;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 5px 25px 25px 25px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, #1e7e4a, #0f5c33);
+            border: none;
+            padding: 18px 20px;
+            border-radius: 50px;
+            color: white;
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 10px 0 #0a3d23, 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: 0.1s ease;
+            cursor: pointer;
+            border: 2px solid #f9b81b;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:active {
+            transform: translateY(6px);
+            box-shadow: 0 4px 0 #0a3d23, 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(145deg, #f3d27e, #c49a2b);
+            border: none;
+            padding: 15px 20px;
+            border-radius: 40px;
+            color: #1a472a;
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 0 #9e7a34, 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: 0.1s ease;
+            cursor: pointer;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:active {
+            transform: translateY(5px);
+            box-shadow: 0 3px 0 #9e7a34, 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(145deg, #25D366, #128C7E);
+            border: none;
+            padding: 15px;
+            border-radius: 40px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 8px 0 #0e6b5f, 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: 0.1s ease;
+            cursor: pointer;
+            border: 2px solid #dcf8c6;
+            margin-top: 5px;
+        }
+
+        .btn-whatsapp:active {
+            transform: translateY(5px);
+            box-shadow: 0 3px 0 #0e6b5f, 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        .footer-note {
+            text-align: center;
+            padding: 15px 25px 20px 25px;
+            background: rgba(10, 55, 30, 0.2);
+            backdrop-filter: blur(5px);
+            color: #f9e174;
+            font-size: 14px;
+            font-weight: 400;
+            border-top: 1px solid #f9b81b;
+        }
+
+        .footer-note i {
+            font-style: normal;
+            color: #ffd966;
+            font-weight: 700;
+        }
+
+        /* Audio Player (hidden) */
+        .hidden-audio {
+            display: none;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            background: #1e7e4a;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            transition: 0.2s;
+            pointer-events: none;
+            border: 2px solid #f9b81b;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* Audio Control Toggle */
+        .audio-toggle {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid white;
+            border-radius: 30px;
+            padding: 8px 12px;
+            font-size: 14px;
+            color: #1a472a;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            backdrop-filter: blur(5px);
+            z-index: 20;
+            cursor: pointer;
+        }
+
+        .audio-toggle.playing {
+            background: #f9b81b;
+            color: #0f3b22;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative elements -->
+    <div class="moon"></div>
+    <div class="star star-1"></div>
+    <div class="star star-2"></div>
+    <div class="star star-3"></div>
+    <div class="star star-4"></div>
+
+    <!-- Audio Toggle (optional for user) -->
+    <div class="audio-toggle" id="audioToggle">
+        <span>🔊</span> <span id="audioToggleText">অডিও চালু করুন</span>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Eid Header -->
+        <div class="eid-header">
+            <div class="eid-title">ঈদ মোবারক</div>
+            <div class="eid-subtitle">✦ সালামি কালেক্টর ✦</div>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-img-container">
+                <img src="https://image2url.com/r2/default/images/1773720802175-ff84956b-dd02-490d-85fb-87b8e99b25af.jpeg" alt="Ishtiaq Ahmad" class="profile-img" id="profileImg" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%231a472a%22/><circle cx=%2250%22 cy=%2240%22 r=%2220%22 fill=%22%23c49a2b%22/><circle cx=%2235%22 cy=%2235%22 r=%223%22 fill=%22white%22/><circle cx=%2265%22 cy=%2235%22 r=%223%22 fill=%22white%22/><path d=%22M40 55 Q50 70, 60 55%22 stroke=%22white%22 stroke-width=%223%22 fill=%22none%22/></svg>'">
+            </div>
+            <div class="profile-info">
+                <div class="profile-name">ইশতিয়াক আহমদ <span>Ishtiaq Ahmad</span></div>
+                <div class="profile-bio">
+                    <i>✨</i> আপনার ভালোবাসার সালামি অপেক্ষায়
+                </div>
+            </div>
+        </div>
+
+        <!-- bKash Card -->
+        <div class="bkash-card" id="bkashCard">
+            <div class="bkash-logo">
+                <img src="https://image2url.com/r2/default/images/1773720863947-1f8c579e-af70-4b42-a220-1574fd4b9828.webp" alt="bKash" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23e21836%22/><text x=%2220%22 y=%2270%22 fill=%22white%22 font-size=%2224%22>bKash</text></svg>'">
+            </div>
+            <div class="bkash-details">
+                <div class="bkash-label">bKash নম্বর (Personal)</div>
+                <div class="bkash-number" id="bkashNumber">+880 1744-697667</div>
+                <div class="bkash-note">
+                    <span>📸</span> সালামি পাঠিয়ে স্ক্রিনশট দিন
+                </div>
+            </div>
+            <div class="copy-btn" id="copyBtn">কপি</div>
+        </div>
+
+        <!-- Message Letter -->
+        <div class="message-container">
+            <div class="message-title">
+                <span>💌</span> ঈদের চিঠি
+            </div>
+            <div class="message-text">
+                <span>✦</span> আমার কাছ থেকে সালামি নিন <span>✦</span><br>
+                আপনার ভালোবাসাই আমার শ্রেষ্ঠ উপহার
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <!-- Primary Button: Salami Nin -->
+            <button class="btn-primary" id="salamiBtn">
+                <span>💰</span> আমার কাছ থেকে সালামি নিন
+            </button>
+
+            <!-- bKash Option (Salami Pathiye SS din) -->
+            <button class="btn-secondary" id="bkashOptionBtn">
+                <span>📲</span> bkash এ সালামি পাঠান
+            </button>
+
+            <!-- WhatsApp Button -->
+            <button class="btn-whatsapp" id="whatsappBtn">
+                <span>📸</span> WhatsApp এ SS পাঠান
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-note">
+            <i>🌙</i> ঈদুল ফিতর ২০২৫ <i>🌙</i>
+        </div>
+    </div>
+
+    <!-- Hidden Audio Elements -->
+    <audio id="bgAudio" loop class="hidden-audio" preload="auto">
+        <source src="https://image2url.com/r2/default/audio/1773720624252-b327a57a-054d-4a61-91b6-b397b3ef99d8.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="clickAudio" class="hidden-audio" preload="auto">
+        <source src="https://image2url.com/r2/default/audio/1773720999739-b1ed711f-1476-4fc5-9ee2-ebd4fa097aec.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Toast for copy notification -->
+    <div class="toast" id="toast">কপি হয়ে গেছে!</div>
+
+    <script>
+        (function() {
+            // Audio elements
+            const bgAudio = document.getElementById('bgAudio');
+            const clickAudio = document.getElementById('clickAudio');
+            const audioToggle = document.getElementById('audioToggle');
+            const audioToggleText = document.getElementById('audioToggleText');
+
+            // Button elements
+            const salamiBtn = document.getElementById('salamiBtn');
+            const bkashOptionBtn = document.getElementById('bkashOptionBtn');
+            const whatsappBtn = document.getElementById('whatsappBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const bkashCard = document.getElementById('bkashCard');
+            const toast = document.getElementById('toast');
+
+            // State
+            let isAudioPlaying = false;
+            let bgAudioEnabled = false; // Start with audio off (user must enable)
+
+            // Try to set audio volumes
+            bgAudio.volume = 0.5;
+            clickAudio.volume = 0.7;
+
+            // Play click sound function (with user interaction safety)
+            function playClickSound() {
+                // Play the click sound regardless of bg audio state
+                clickAudio.currentTime = 0;
+                clickAudio.play().catch(e => console.log('Click audio play failed:', e));
+            }
+
+            // Toggle background audio
+            function toggleBackgroundAudio() {
+                if (bgAudioEnabled) {
+                    bgAudio.pause();
+                    bgAudioEnabled = false;
+                    audioToggle.classList.remove('playing');
+                    audioToggleText.innerText = 'অডিও চালু করুন';
+                } else {
+                    bgAudio.play()
+                        .then(() => {
+                            bgAudioEnabled = true;
+                            audioToggle.classList.add('playing');
+                            audioToggleText.innerText = 'অডিও বন্ধ করুন';
+                        })
+                        .catch(e => {
+                            console.log('Audio autoplay failed:', e);
+                            // Show a toast that user needs to interact first
+                            toast.innerText = 'অডিও চালাতে একটি বাটনে ক্লিক করুন';
+                            toast.classList.add('show');
+                            setTimeout(() => toast.classList.remove('show'), 2000);
+                        });
+                }
+            }
+
+            // Try to play background audio on first user interaction
+            function enableAudioOnFirstInteraction() {
+                if (!bgAudioEnabled) {
+                    // Attempt to play background audio on first click
+                    bgAudio.play()
+                        .then(() => {
+                            bgAudioEnabled = true;
+                            audioToggle.classList.add('playing');
+                            audioToggleText.innerText = 'অডিও বন্ধ করুন';
+                        })
+                        .catch(e => console.log('Still cannot play audio:', e));
+                }
+            }
+
+            // Event listeners for buttons to enable audio and play click sound
+
+            // Primary Salami Button
+            salamiBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                playClickSound();
+                enableAudioOnFirstInteraction(); // Try to start background if not started
+                
+                // Show a nice feedback
+                toast.innerText = '🎉 ঈদ মোবারক! সালামির জন্য ধন্যবাদ';
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+                
+                // Navigate nowhere (stay on page) - explicitly do nothing else
+                console.log('Salami button clicked - staying on page');
+            });
+
+            // bKash Option Button - copy number and show message
+            bkashOptionBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                playClickSound();
+                enableAudioOnFirstInteraction();
+
+                // Copy bKash number to clipboard
+                const bkashNumber = document.getElementById('bkashNumber').innerText;
+                navigator.clipboard.writeText(bkashNumber).then(() => {
+                    toast.innerText = '📋 bkash নম্বর কপি হয়েছে!';
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 2000);
+                }).catch(() => {
+                    // Fallback
+                    toast.innerText = '📋 নম্বর: ' + bkashNumber;
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 3000);
+                });
+
+                // Also open bKash app or just show message (no navigation)
+                // Staying on same page as requested
+            });
+
+            // WhatsApp Button
+            whatsappBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                playClickSound();
+                enableAudioOnFirstInteraction();
+
+                // Prepare WhatsApp message with bKash number
+                const bkashNumber = document.getElementById('bkashNumber').innerText;
+                const message = `আসসালামু আলাইকুম, ইশতিয়াক আহমদ। আমি আপনার bkash এ সালামি পাঠিয়েছি। স্ক্রিনশট সংযুক্ত করুন।`;
+                const encodedMessage = encodeURIComponent(message);
+                
+                // Try to open WhatsApp with number
+                const whatsappUrl = `https://wa.me/8801744697667?text=${encodedMessage}`;
+                
+                // Open in new tab/window
+                window.open(whatsappUrl, '_blank');
+                
+                toast.innerText = '📸 WhatsApp খোলা হচ্ছে...';
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+            });
+
+            // Copy button on bKash card
+            copyBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const bkashNumber = document.getElementById('bkashNumber').innerText;
+                navigator.clipboard.writeText(bkashNumber).then(() => {
+                    toast.innerText = '✅ নম্বর কপি হয়েছে!';
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 1500);
+                }).catch(() => {
+                    toast.innerText = '📋 নম্বর: ' + bkashNumber;
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 2000);
+                });
+            });
+
+            // Click on bKash card also copies number
+            bkashCard.addEventListener('click', function() {
+                const bkashNumber = document.getElementById('bkashNumber').innerText;
+                navigator.clipboard.writeText(bkashNumber).then(() => {
+                    toast.innerText = '📋 bkash নম্বর কপি হয়েছে';
+                    toast.classList.add('show');
+                    setTimeout(() => toast.classList.remove('show'), 1500);
+                });
+            });
+
+            // Audio toggle button
+            audioToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleBackgroundAudio();
+            });
+
+            // Handle image error - set fallback emoji if image fails
+            document.getElementById('profileImg').onerror = function() {
+                this.style.display = 'none';
+                // Could add a fallback div but it's fine
+            };
+
+            // Also handle bkash logo error
+            document.querySelector('.bkash-logo img').onerror = function() {
+                this.style.display = 'none';
+                this.parentElement.innerHTML += '<div style="color:white; font-weight:bold;">bKash</div>';
+            };
+
+            // Preload click audio on page load (optional)
+            window.addEventListener('load', function() {
+                // Preload audio but don't play
+                clickAudio.load();
+                bgAudio.load();
+            });
+
+            // No automatic navigation from any button except WhatsApp
+            // All buttons stay on page as requested
+        })();
+    </script>
+</body>
+</html>
